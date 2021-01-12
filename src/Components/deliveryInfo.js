@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Delivery from './delivery';
 import personsData from '../Data/persons.json';
+import SaveDelivery from './saveDelivery';
 
 class DeliveryInfo extends Component {
     constructor(props) {
@@ -56,9 +57,9 @@ class DeliveryInfo extends Component {
             <div key={i} className="card">
                 <div className="card-body">
                     <Delivery index={item.id} onChange={this.update} onDelete={this.delete}>
-                        <h4>{item.name}</h4>
-                        <h4>{item.date}</h4>
-                        <h4>{item.city}</h4>
+                        <div>
+                            <p>{item.id} {item.date} {item.name} {item.city}</p>
+                        </div>
                     </Delivery>
                 </div>
             </div>
@@ -67,9 +68,11 @@ class DeliveryInfo extends Component {
 
     render() {
         return(
-            <div className='deliveries-list'>
-                {this.state.deliveries.map(this.eachDelivery)}
-                <button onClick={this.add}>Add</button>
+            <div>
+                <div className='deliveries-list'>
+                    {this.state.deliveries.map(this.eachDelivery)}
+                    {/* <button onClick={this.add}>Add</button> */}
+                </div>
             </div>
         )
     }

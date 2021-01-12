@@ -1,18 +1,18 @@
 [
     {
-        "id": 3,
+        "id": 1,
         "date": "01.01.2021",
         "name": "John Doe",
         "city": "Tel Aviv"
     },
     {
-        "id": 7,
+        "id": 2,
         "date": "05.01.2021",
         "name": "John Doe",
         "city": "Haifa"
     },
     {
-        "id": 8,
+        "id": 3,
         "date": "06.01.2021",
         "name": "John Doe",
         "city": "Jerusalem"

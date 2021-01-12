@@ -1,0 +1,13 @@
+p{
+    font-family: Rubik;
+    size: 18px;
+    line-height: 40px;
+}
+body{
+    background-color: green;
+    width: 550px;
+    height: 594px;
+    border: 1px solid;
+    margin-left: 100px;
+}
+  

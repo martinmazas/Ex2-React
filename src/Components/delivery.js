@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {MdModeEdit,MdDelete} from 'react-icons/md';
 
 class Delivery extends Component {
     constructor(props) {
@@ -11,7 +12,7 @@ class Delivery extends Component {
         this.edit = this.edit.bind(this);
         this.delete = this.delete.bind(this);
         this.renderUI = this.renderUI.bind(this);
-        this.renderForm = this.renderForm.bind(this);
+        // this.renderForm = this.renderForm.bind(this);
         this.save = this.save.bind(this);
     }
 
@@ -21,16 +22,16 @@ class Delivery extends Component {
         })
     }
 
-    renderForm() {
-        return(
-            <div>
-                <form>
-                    <textarea ref={input => {this.newDelivery = input}} />
-                    <button onClick={this.save}>Save</button>
-                </form>
-            </div>
-        )
-    }
+    // renderForm() {
+    //     return(
+    //         <div>
+    //             <form>
+    //                 <textarea ref={input => {this.newDelivery = input}} />
+    //                 <button onClick={this.save}>Save</button>
+    //             </form>
+    //         </div>
+    //     )
+    // }
 
     save(e) {
         e.preventDefault();
@@ -51,10 +52,11 @@ class Delivery extends Component {
             <div className="delivery">
                 <div>{this.props.children}</div>
                 <span>
-                    <button onClick={this.edit}>Edit</button>
-                    <button onClick={this.delete}>Delete</button>
+                    <button onClick={this.edit}><MdModeEdit /></button>
+                    <button onClick={this.delete}><MdDelete /></button>
                 </span>
             </div>
+            
         )
     }
 

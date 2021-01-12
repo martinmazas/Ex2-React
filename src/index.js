@@ -1,12 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import DeliveryInfo from './Components/deliveryInfo';
+import SaveDelivery from './Components/saveDelivery';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
     <DeliveryInfo />
+    <SaveDelivery />
   </React.StrictMode>,
   document.getElementById('root')
 );
