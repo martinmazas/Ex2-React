@@ -1,13 +1,30 @@
-p{
+.save-delivery {
+    width: 400px;
+    height: 284px;
+    background-color: yellow;
+    position: relative;
+    float: left;
+    margin-left: 3.87%;
+}
+
+
+.btn-danger{
+    width: 158px;
+    height: 60px;
+    margin-left: 115px;
     font-family: Rubik;
-    size: 18px;
-    line-height: 40px;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 19px;
 }
-body{
-    background-color: green;
-    width: 550px;
-    height: 594px;
-    border: 1px solid;
-    margin-left: 100px;
+
+.form-control {
+    width: 400px;
+    height: 60px;
+    background: #FFFFFF;
+    border: 2px solid #EE4D47;
+    box-sizing: border-box;
+    box-shadow: 0px 20px 40px rgba(238, 77, 71, 0.2);
+    border-radius: 5px;
 }
-  

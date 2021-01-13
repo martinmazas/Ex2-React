@@ -1,0 +1,23 @@
+.deliveries-info {
+    position: relative;
+    float: left;
+    width: 34.29%;
+    height: 44.35%;
+    background-color: green;
+    border: 1px solid;
+    margin-left: 31.55%;
+}
+
+.person-info h4 {
+    display: inline;
+    justify-content: space-around;
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 40px;
+    /* or 222% */
+
+    /* text */
+    color: #402B2B;
+}

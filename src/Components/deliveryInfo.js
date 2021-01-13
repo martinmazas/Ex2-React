@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import Delivery from './delivery';
 import personsData from '../Data/persons.json';
-import SaveDelivery from './saveDelivery';
+import './deliveryInfo.css';
 
 class DeliveryInfo extends Component {
     constructor(props) {
@@ -57,8 +57,12 @@ class DeliveryInfo extends Component {
             <div key={i} className="card">
                 <div className="card-body">
                     <Delivery index={item.id} onChange={this.update} onDelete={this.delete}>
-                        <div>
-                            <p>{item.id} {item.date} {item.name} {item.city}</p>
+                        <div className='person-info'>
+                            <h4>{item.id}</h4>
+                            <h4>{item.date}</h4>
+                            <h4>{item.name}</h4>
+                            <h4>{item.city}</h4>
+                            {/* <p>{item.id} {item.date} {item.name} {item.city}</p> */}
                         </div>
                     </Delivery>
                 </div>
@@ -69,7 +73,7 @@ class DeliveryInfo extends Component {
     render() {
         return(
             <div>
-                <div className='deliveries-list'>
+                <div className='deliveries-info'>
                     {this.state.deliveries.map(this.eachDelivery)}
                     {/* <button onClick={this.add}>Add</button> */}
                 </div>

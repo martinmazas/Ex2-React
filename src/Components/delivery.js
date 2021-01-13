@@ -13,7 +13,7 @@ class Delivery extends Component {
         this.delete = this.delete.bind(this);
         this.renderUI = this.renderUI.bind(this);
         // this.renderForm = this.renderForm.bind(this);
-        this.save = this.save.bind(this);
+        // this.save = this.save.bind(this);
     }
 
     edit() {
@@ -33,15 +33,15 @@ class Delivery extends Component {
     //     )
     // }
 
-    save(e) {
-        e.preventDefault();
+    // save(e) {
+    //     e.preventDefault();
 
-        this.props.onChange(this.newDelivery.value, this.props.index);
+    //     this.props.onChange(this.newDelivery.value, this.props.index);
 
-        this.setState({
-            editing: false
-        })
-    }
+    //     this.setState({
+    //         editing: false
+    //     })
+    // }
 
     delete() {
         this.props.onDelete(this.props.index);
@@ -61,7 +61,8 @@ class Delivery extends Component {
     }
 
     render() {
-        return this.state.editing ? this.renderForm() : this.renderUI();
+        return this.renderUI();
+        // return this.state.editing ? this.renderForm() : this.renderUI();
     }
 }
 

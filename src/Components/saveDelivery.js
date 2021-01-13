@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import './saveDelivery.css';
-import Delivery from './delivery';
 
 class SaveDelivery extends Component {
     constructor(props) {
@@ -24,13 +23,13 @@ class SaveDelivery extends Component {
 
     renderForm() {
         return(
-            <div>
+            <div className='save-delivery'>
                 <form>
-                    <input type="date" class="form-control" id="formGroupExampleInput" name="date" /><br />
-                    <input type="text" class="form-control" id="formGroupExampleInput" name="name" /><br />
-                    <input type="text" class="form-control" id="formGroupExampleInput" name="city" /><br />
+                    <input type="date" className="form-control" id="formGroupExampleInput" name="date" /><br />
+                    <input type="text" className="form-control" id="formGroupExampleInput" name="name" /><br />
+                    <input type="text" className="form-control" id="formGroupExampleInput" name="city" /><br />
                     {/* <textarea ref={input => {this.newDelivery = input}} /> */}
-                    <button onClick={this.save} type="button" class="btn btn-danger">Save</button>
+                    <button onClick={this.save} type="button" className="btn btn-danger">Save</button>
                 </form>
             </div>
         )
