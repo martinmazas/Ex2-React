@@ -9,10 +9,10 @@ import Mobel from './Components/mobel';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Background />
-    <Mobel />
+    {/* <Background /> */}
     <DeliveryInfo />
-    <SaveDelivery />
+    {/* <SaveDelivery /> */}
+    {/* <Mobel /> */}
   </React.StrictMode>,
   document.getElementById('root')
 );

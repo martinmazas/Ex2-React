@@ -2,6 +2,14 @@ import React, {Component} from 'react';
 import Delivery from './delivery';
 import personsData from '../Data/persons.json';
 import './deliveryInfo.css';
+import Background from './background';
+
+const styles = {
+    deliveries: {
+        width: 493.77,
+        height: 416.48
+    }
+}
 class DeliveryInfo extends Component {
     constructor(props) {
         super(props);
@@ -15,6 +23,7 @@ class DeliveryInfo extends Component {
         this.nextId = this.nextId.bind(this);
     }
 
+    
     componentDidMount() {
         personsData.map(item => this.add({id: item.id, date: item.date, name: item.name, city: item.city}));
     }
@@ -61,7 +70,6 @@ class DeliveryInfo extends Component {
                             <h4>{item.date}</h4>
                             <h4>{item.name}</h4>
                             <h4>{item.city}</h4>
-                            {/* <p>{item.id} {item.date} {item.name} {item.city}</p> */}
                         </div>
                     </Delivery>
                 </div>
@@ -72,7 +80,7 @@ class DeliveryInfo extends Component {
     render() {
         return(
             <div>
-                <div className='deliveries-info'>
+                <div className='deliveries-info' style={styles.deliveries}>
                     {this.state.deliveries.map(this.eachDelivery)}
                     {/* <button onClick={this.add}>Add</button> */}
                 </div>
