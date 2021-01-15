@@ -4,9 +4,13 @@ import DeliveryInfo from './Components/deliveryInfo';
 import SaveDelivery from './Components/saveDelivery';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
+import Background from './Components/background';
+import Mobel from './Components/mobel';
 
 ReactDOM.render(
   <React.StrictMode>
+    <Background />
+    <Mobel />
     <DeliveryInfo />
     <SaveDelivery />
   </React.StrictMode>,

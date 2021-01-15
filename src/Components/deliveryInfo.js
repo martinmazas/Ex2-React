@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import Delivery from './delivery';
 import personsData from '../Data/persons.json';
 import './deliveryInfo.css';
-
 class DeliveryInfo extends Component {
     constructor(props) {
         super(props);
