@@ -7,6 +7,7 @@ class SaveDelivery extends Component {
         this.state = {
             save: false
         }
+        this.newDelivery = "";
         this.renderForm = this.renderForm.bind(this);
         this.save = this.save.bind(this);
     }
@@ -15,10 +16,10 @@ class SaveDelivery extends Component {
         e.preventDefault();
 
         this.props.onChange(this.newDelivery.value, this.props.index);
-
         this.setState({
             save: false
         })
+
     }
 
     renderForm() {

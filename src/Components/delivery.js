@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
-import {MdModeEdit,MdDelete} from 'react-icons/md';
+import Fab from '@material-ui/core/Fab';
+import EditIcon from '@material-ui/icons/Edit';
+import DeleteIcon from '@material-ui/icons/Delete';
 
 class Delivery extends Component {
     constructor(props) {
@@ -52,8 +54,12 @@ class Delivery extends Component {
             <div className="delivery">
                 <div>{this.props.children}</div>
                 <span>
-                    <button onClick={this.edit}><MdModeEdit /></button>
-                    <button onClick={this.delete}><MdDelete /></button>
+                    <Fab color="secondary" aria-label="edit" size="small" onClick={this.edit}>
+                        <EditIcon />
+                    </Fab>
+                    <Fab color="secondary" aria-label="edit" size="small" onClick={this.delete}>
+                        <DeleteIcon />
+                    </Fab>
                 </span>
             </div>
             
