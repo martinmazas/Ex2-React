@@ -2,12 +2,25 @@ import React, {Component} from 'react';
 import Delivery from './delivery';
 import personsData from '../Data/persons.json';
 import './deliveryInfo.css';
-import Background from './background';
+// import Background from './background';
+import Fab from '@material-ui/core/Fab';
+import EditIcon from '@material-ui/icons/Edit';
+import DeleteIcon from '@material-ui/icons/Delete';
 
 const styles = {
     deliveries: {
         width: 550,
         height: 594
+    },
+    buttons: {
+        marginLeft: 58,
+        width: 86,
+        height: 36
+    },
+    info: {
+        width: 514,
+        height: 38,
+        marginLeft: 24
     }
 }
 class DeliveryInfo extends Component {
@@ -36,6 +49,7 @@ class DeliveryInfo extends Component {
     }
 
     delete(id) {
+        console.log('deleteId');
         this.setState(prevState => ({
             deliveries: prevState.deliveries.filter(delivery => delivery.id !== id)
         }))
@@ -62,18 +76,24 @@ class DeliveryInfo extends Component {
 
     eachDelivery(item, i) {
         return(
-            <div key={i} className="card">
-                <div className="card-body">
-                    <Delivery index={item.id} onChange={this.update} onDelete={this.delete}>
+            // <div  className="card">
+                    <Delivery key={i} index={item.id} onChange={this.update} onDelete={this.delete}>
                         <div className='person-info'>
                             <h4>{item.id}</h4>
-                            <h4>{item.date}</h4>
-                            <h4>{item.name}</h4>
-                            <h4>{item.city}</h4>
+                            <h4 style={{marginLeft:13}}>{item.date}</h4>
+                            <h4 style={{marginLeft:30}}>{item.name}</h4>
+                            <h4 style={{marginLeft:30}}>{item.city}</h4>
+                            <span style={styles.buttons} className="buttons">
+                                <Fab color="secondary" aria-label="edit" style={{width:32, height:32}} onClick={this.edit}>
+                                    <EditIcon />
+                                </Fab>
+                                <Fab color="secondary" aria-label="edit" style={{marginLeft:13, width:32, height:32}} onClick={this.delete}>
+                                    <DeleteIcon />
+                                </Fab>
+                            </span>
                         </div>
                     </Delivery>
-                </div>
-            </div>
+            // </div>
         )
     }
 

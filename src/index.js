@@ -10,8 +10,8 @@ import Mobel from './Components/mobel';
 ReactDOM.render(
   <React.StrictMode>
     {/* <Background /> */}
-    {/* <DeliveryInfo /> */}
-    <SaveDelivery />
+    <DeliveryInfo />
+    {/* <SaveDelivery /> */}
     {/* <Mobel /> */}
   </React.StrictMode>,
   document.getElementById('root')

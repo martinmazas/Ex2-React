@@ -1,7 +1,16 @@
 import React, {Component} from 'react';
-import Fab from '@material-ui/core/Fab';
-import EditIcon from '@material-ui/icons/Edit';
-import DeleteIcon from '@material-ui/icons/Delete';
+// import Fab from '@material-ui/core/Fab';
+// import EditIcon from '@material-ui/icons/Edit';
+// import DeleteIcon from '@material-ui/icons/Delete';
+
+const styles = {
+    info: {
+        width: 514,
+        height: 38,
+        marginLeft: 24,
+        marginBottom: 14
+    }
+}
 
 class Delivery extends Component {
     constructor(props) {
@@ -11,7 +20,7 @@ class Delivery extends Component {
             editing: false
         }
 
-        this.edit = this.edit.bind(this);
+        // this.edit = this.edit.bind(this);
         this.delete = this.delete.bind(this);
         this.renderUI = this.renderUI.bind(this);
         // this.renderForm = this.renderForm.bind(this);
@@ -46,30 +55,20 @@ class Delivery extends Component {
     // }
 
     delete() {
+        console.log('delete');
         this.props.onDelete(this.props.index);
     }
 
     renderUI() {
         return(
-            <div className="delivery">
-                <div>{this.props.children}
-                <div className="buttons">
-                    <Fab color="secondary" aria-label="edit" size="small" onClick={this.edit}>
-                        <EditIcon />
-                    </Fab>
-                    <Fab color="secondary" aria-label="edit" size="small" onClick={this.delete}>
-                        <DeleteIcon />
-                    </Fab>
-                </div>
-                </div>
+            <div className="delivery" style={styles.info}>
+                {this.props.children}                
             </div>
-            
         )
     }
 
     render() {
         return this.renderUI();
-        // return this.state.editing ? this.renderForm() : this.renderUI();
     }
 }
 

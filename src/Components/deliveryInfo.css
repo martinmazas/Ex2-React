@@ -6,6 +6,7 @@
     border: 1px solid;
 }
 
+
 .person-info h4 {
     display: inline;
     justify-content: space-around;
@@ -14,11 +15,12 @@
     font-weight: 300;
     font-size: 18px;
     line-height: 40px;
+    height: 38px;
     /* or 222% */
 
     /* text */
     color: #402B2B;
 }
 h4 ~ h4{
-    margin-left: 10%;
+    margin-left: 30px;
 }

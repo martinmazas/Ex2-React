@@ -1,8 +1,13 @@
 import React, {Component} from 'react';
 import './saveDelivery.css';
 import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
 
 const style = {
+    input:{
+        display: "block",
+        marginBottom: 14,
+    },
     marginLeft: 130
 }
 class SaveDelivery extends Component {
@@ -30,9 +35,12 @@ class SaveDelivery extends Component {
         return(
             <div className='save-delivery'>
                 <form>
-                    <input type="date" className="form-control" id="formGroupExampleInput" name="date" /><br />
-                    <input type="text" className="form-control" id="formGroupExampleInput" name="name" /><br />
-                    <input type="text" className="form-control" id="formGroupExampleInput" name="city" /><br />
+                    <TextField id="outlined-basic" label="Outlined" variant="outlined" style={style.input} />
+                    <TextField id="outlined-basic" label="Outlined" variant="outlined" style={style.input} />
+                    <TextField id="outlined-basic" label="Outlined" variant="outlined" style={style.input} />
+                    {/* <input type="date" className="form-control" id="formGroupExampleInput" name="date" /> */}
+                    {/* <input type="text" className="form-control" id="formGroupExampleInput" name="name" /> */}
+                    {/* <input type="text" className="form-control" id="formGroupExampleInput" name="city" /> */}
                     {/* <textarea ref={input => {this.newDelivery = input}} /> */}
                     <Button variant="contained" color="secondary" style={style}>
                         Save
