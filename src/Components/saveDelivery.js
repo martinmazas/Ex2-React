@@ -1,6 +1,10 @@
 import React, {Component} from 'react';
 import './saveDelivery.css';
+import Button from '@material-ui/core/Button';
 
+const style = {
+    marginLeft: 130
+}
 class SaveDelivery extends Component {
     constructor(props) {
         super(props);
@@ -30,7 +34,10 @@ class SaveDelivery extends Component {
                     <input type="text" className="form-control" id="formGroupExampleInput" name="name" /><br />
                     <input type="text" className="form-control" id="formGroupExampleInput" name="city" /><br />
                     {/* <textarea ref={input => {this.newDelivery = input}} /> */}
-                    <button onClick={this.save} type="button" className="btn btn-danger">Save</button>
+                    <Button variant="contained" color="secondary" style={style}>
+                        Save
+                    </Button>
+                    {/* <button onClick={this.save} type="button" className="btn btn-danger">Save</button> */}
                 </form>
             </div>
         )

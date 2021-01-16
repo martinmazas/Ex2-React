@@ -1,5 +1,7 @@
 import React from 'react';
 import mask from '../images/Mask.png';
+import DeliveryInfo from './deliveryInfo';
+import SaveDelivery from './saveDelivery';
 
 const styles ={
     paperContainer: {
@@ -14,6 +16,8 @@ export default class Background extends React.Component {
         return (
             <div>
                 <img src={mask} style={styles.paperContainer} alt="mask"/>
+                <DeliveryInfo />
+                <SaveDelivery />
             </div>
         )
     }

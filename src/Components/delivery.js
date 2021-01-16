@@ -52,15 +52,16 @@ class Delivery extends Component {
     renderUI() {
         return(
             <div className="delivery">
-                <div>{this.props.children}</div>
-                <span>
+                <div>{this.props.children}
+                <div className="buttons">
                     <Fab color="secondary" aria-label="edit" size="small" onClick={this.edit}>
                         <EditIcon />
                     </Fab>
                     <Fab color="secondary" aria-label="edit" size="small" onClick={this.delete}>
                         <DeleteIcon />
                     </Fab>
-                </span>
+                </div>
+                </div>
             </div>
             
         )

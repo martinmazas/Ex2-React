@@ -7,7 +7,7 @@ import Background from './background';
 const styles = {
     deliveries: {
         width: 550,
-        height: 594,
+        height: 594
     }
 }
 class DeliveryInfo extends Component {
