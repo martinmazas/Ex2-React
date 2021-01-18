@@ -5,19 +5,20 @@ import SaveDelivery from './saveDelivery';
 
 const styles ={
     paperContainer: {
-        height: 560.91,
-        width: 1153.62,
-        marginLeft: 260.35
+        height: 800,
+        width: 1285,
+        marginLeft: 323,
+        position: 'relative'
     }
 };
 
 export default class Background extends React.Component {
     render() {
         return (
-            <div>
+            <div className='background' style={{position: 'relative'}}>
                 <img src={mask} style={styles.paperContainer} alt="mask"/>
                 <DeliveryInfo />
-                <SaveDelivery />
+                {/* <SaveDelivery /> */}
             </div>
         )
     }

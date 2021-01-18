@@ -6,22 +6,26 @@ import './deliveryInfo.css';
 import Fab from '@material-ui/core/Fab';
 import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
-import { render } from '@testing-library/react';
 
 const styles = {
     deliveries: {
         width: 550,
-        height: 594
+        height: 594,
+        marginLeft: 506,
+        top: 113,
+        background: 'white',
+        position: 'absolute'
     },
     buttons: {
         marginLeft: 58,
         width: 86,
-        height: 36
+        height: 36,
     },
     info: {
         width: 514,
         height: 38,
-        marginLeft: 24
+        marginLeft: 24,
+        marginBottom: 14,
     }
 }
 class DeliveryInfo extends Component {
@@ -36,8 +40,7 @@ class DeliveryInfo extends Component {
         this.add = this.add.bind(this);
         this.nextId = this.nextId.bind(this);
     }
-
-    
+  
     componentDidMount() {
         personsData.map(item => this.add({id: item.id, date: item.date, name: item.name, city: item.city}));
     }
@@ -76,34 +79,29 @@ class DeliveryInfo extends Component {
 
     eachDelivery(item, i) {
         return(
-            // <div  className="card">
-                    <Delivery key={i} index={item.id} onChange={this.update} onDelete={this.delete}>
-                        <div className='person-info'>
-                            <h4>{i + 1}</h4>
-                            <h4 style={{marginLeft:13}}>{item.date}</h4>
-                            <h4 style={{marginLeft:30}}>{item.name}</h4>
-                            <h4 style={{marginLeft:30}}>{item.city}</h4>
-                            <span style={styles.buttons} className="buttons">
-                                <Fab color="secondary" aria-label="edit" style={{width:32, height:32}} onClick={this.edit}>
-                                    <EditIcon />
-                                </Fab>
-                                <Fab color="secondary" aria-label="edit" style={{marginLeft:13, width:32, height:32}} onClick={() => this.delete(item.id)}>
-                                    <DeleteIcon />
-                                </Fab>
-                            </span>
-                        </div>
-                    </Delivery>
-            // </div>
+            <Delivery key={i} index={item.id} onChange={this.update} onDelete={this.delete}>
+                <div className='person-info' style={styles.info}>
+                    <h4 style={{ width: 24}}>{i + 1}</h4>
+                    <h4 style={{marginLeft: 13 }}>{item.date}</h4>
+                    <h4>{item.name}</h4>
+                    <h4>{item.city}</h4>
+                    <span style={styles.buttons} className="buttons">
+                        <Fab color="secondary" aria-label="edit" style={{width:32, height:32}} onClick={this.edit}>
+                            <EditIcon />
+                        </Fab>
+                        <Fab color="secondary" className="deleteButton" aria-label="edit" style={{width:32, height:32, marginLeft: 13}} onClick={() => this.delete(item.id)}>
+                            <DeleteIcon />
+                        </Fab>
+                    </span>
+                </div>
+            </Delivery>       
         )
     }
 
     render() {
         return(
-            <div>
-                <div className='deliveries-info' style={styles.deliveries}>
-                    {this.state.deliveries.map(this.eachDelivery)}
-                    {/* <button onClick={this.add}>Add</button> */}
-                </div>
+            <div className='deliveries-info' style={styles.deliveries}>
+                {this.state.deliveries.map(this.eachDelivery)}
             </div>
         )
     }
