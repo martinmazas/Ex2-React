@@ -6,6 +6,7 @@ import './deliveryInfo.css';
 import Fab from '@material-ui/core/Fab';
 import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
+import { render } from '@testing-library/react';
 
 const styles = {
     deliveries: {
@@ -49,7 +50,6 @@ class DeliveryInfo extends Component {
     }
 
     delete(id) {
-        console.log('deleteId');
         this.setState(prevState => ({
             deliveries: prevState.deliveries.filter(delivery => delivery.id !== id)
         }))
@@ -79,7 +79,7 @@ class DeliveryInfo extends Component {
             // <div  className="card">
                     <Delivery key={i} index={item.id} onChange={this.update} onDelete={this.delete}>
                         <div className='person-info'>
-                            <h4>{item.id}</h4>
+                            <h4>{i + 1}</h4>
                             <h4 style={{marginLeft:13}}>{item.date}</h4>
                             <h4 style={{marginLeft:30}}>{item.name}</h4>
                             <h4 style={{marginLeft:30}}>{item.city}</h4>
@@ -87,7 +87,7 @@ class DeliveryInfo extends Component {
                                 <Fab color="secondary" aria-label="edit" style={{width:32, height:32}} onClick={this.edit}>
                                     <EditIcon />
                                 </Fab>
-                                <Fab color="secondary" aria-label="edit" style={{marginLeft:13, width:32, height:32}} onClick={this.delete}>
+                                <Fab color="secondary" aria-label="edit" style={{marginLeft:13, width:32, height:32}} onClick={() => this.delete(item.id)}>
                                     <DeleteIcon />
                                 </Fab>
                             </span>
