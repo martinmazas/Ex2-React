@@ -1,14 +1,51 @@
 import React, {Component} from 'react';
 import './saveDelivery.css';
-import Button from '@material-ui/core/Button';
-import TextField from '@material-ui/core/TextField';
+import {Button, TextareaAutosize} from '@material-ui/core';
 
-const style = {
+const styles = {
+    save: {
+        width: 400,
+        height: 284,
+        marginLeft: 1094,
+        top: 113,
+        position: 'absolute',
+        borderRadius: 5,
+    },
     input:{
         display: "block",
         marginBottom: 14,
+        width: 400,
+        height: 60,
+        background: '#FFFFFF',
+        border: '2px solid #EE4D47',
+        boxSizing: 'border-box',
+        boxShadow: '0px 20px 40px rgba(238, 77, 71, 0.2)',
+        borderRadius: 5,
+        fontFamily: 'Rubik',
+        fontStyle: 'normal',
+        fontWeight: 'bold',
+        fontSize: 18,
+        lineHeight: 40,
+  
+        color: '#402B2B',
     },
-    marginLeft: 130
+    saveButton: {
+        width: 158,
+        height:60,
+        fontFamily: 'Rubik',
+        fontStyle: 'normal',
+        fontWeight: 'bold',
+        background: '#EE4D47',
+        fontSize: 16,
+        lineHeight: 19,
+        display: 'flex',
+        alignItems: 'center',
+        textAlign: 'center',
+        letterSpacing: '0.05em',
+        color: '#FFFFFF',
+        textTransform: 'none',
+        marginLeft: 115,
+    }
 }
 class SaveDelivery extends Component {
     constructor(props) {
@@ -33,19 +70,15 @@ class SaveDelivery extends Component {
 
     renderForm() {
         return(
-            <div className='save-delivery'>
+            <div className='save-delivery' style={styles.save}>
                 <form>
-                    <TextField id="outlined-basic" label="Outlined" variant="outlined" style={style.input} />
-                    <TextField id="outlined-basic" label="Outlined" variant="outlined" style={style.input} />
-                    <TextField id="outlined-basic" label="Outlined" variant="outlined" style={style.input} />
-                    {/* <input type="date" className="form-control" id="formGroupExampleInput" name="date" /> */}
-                    {/* <input type="text" className="form-control" id="formGroupExampleInput" name="name" /> */}
-                    {/* <input type="text" className="form-control" id="formGroupExampleInput" name="city" /> */}
+                    <TextareaAutosize name="date" style={styles.input} placeholder='test' />
+                    <TextareaAutosize name="name" style={styles.input}/>
+                    <TextareaAutosize name="city" style={styles.input}/>
                     {/* <textarea ref={input => {this.newDelivery = input}} /> */}
-                    <Button variant="contained" color="secondary" style={style}>
+                    <Button style={styles.saveButton} onClick={this.save}>
                         Save
                     </Button>
-                    {/* <button onClick={this.save} type="button" className="btn btn-danger">Save</button> */}
                 </form>
             </div>
         )

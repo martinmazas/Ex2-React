@@ -1,21 +1,22 @@
 .save-delivery {
-    width: 400px;
-    height: 284px;
-    background-color: yellow;
-    position: relative;
-    float: left;
-    margin-left: 3.87%;
-    display: flex;
+    /* width: 400px; */
+    /* height: 284px; */
+    /* background-color: yellow; */
+    /* position: relative; */
+    /* float: left; */
+    /* margin-left: 3.87%; */
+    /* display: flex; */
 }
 
 .form-control {
-    display: block;
-    width: 400px;
-    height: 60px;
-    background: #FFFFFF;
-    border: 2px solid #EE4D47;
-    box-sizing: border-box;
-    box-shadow: 0px 20px 40px rgba(238, 77, 71, 0.2);
-    border-radius: 5px;
-    margin-bottom: 14px;
+    /* display: block; */
+    /* width: 400px; */
+    /* height: 60px; */
+    /* background: #FFFFFF; */
+    /* border: 2px solid #EE4D47; */
+    /* box-sizing: border-box; */
+    /* box-shadow: 0px 20px 40px rgba(238, 77, 71, 0.2); */
+    /* border-radius: 5px; */
+    /* margin-bottom: 14px; */
 }
+

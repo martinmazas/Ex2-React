@@ -18,7 +18,7 @@ export default class Background extends React.Component {
             <div className='background' style={{position: 'relative'}}>
                 <img src={mask} style={styles.paperContainer} alt="mask"/>
                 <DeliveryInfo />
-                {/* <SaveDelivery /> */}
+                <SaveDelivery />
             </div>
         )
     }

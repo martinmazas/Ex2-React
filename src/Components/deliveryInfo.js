@@ -86,10 +86,10 @@ class DeliveryInfo extends Component {
                     <h4>{item.name}</h4>
                     <h4>{item.city}</h4>
                     <span style={styles.buttons} className="buttons">
-                        <Fab color="secondary" aria-label="edit" style={{width:32, height:32}} onClick={this.edit}>
+                        <Fab aria-label="edit" style={{width:32, height:32, background: '#ED4D47', color:'#FFFFFF'}} onClick={this.edit}>
                             <EditIcon />
                         </Fab>
-                        <Fab color="secondary" className="deleteButton" aria-label="edit" style={{width:32, height:32, marginLeft: 13}} onClick={() => this.delete(item.id)}>
+                        <Fab className="deleteButton" aria-label="edit" style={{width:32, height:32, marginLeft: 13, background: '#ED4D47', color:'#FFFFFF'}} onClick={() => this.delete(item.id)}>
                             <DeleteIcon />
                         </Fab>
                     </span>
