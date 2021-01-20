@@ -12,7 +12,6 @@ const styles = {
 class Delivery extends Component {
     constructor(props) {
         super(props);
-
         this.state = {
             editing: false
         }
@@ -43,17 +42,17 @@ class Delivery extends Component {
     // }
 
     // save(e) {
+    //     console.log(e);
     //     e.preventDefault();
 
-    //     this.props.onChange(this.newDelivery.value, this.props.index);
+    //     // this.props.onChange(this.newDelivery.value, this.props.index);
 
-    //     this.setState({
-    //         editing: false
-    //     })
+    //     // this.setState({
+    //     //     editing: false
+    //     // })
     // }
 
     delete() {
-        console.log('delete');
         this.props.onDelete(this.props.index);
     }
 

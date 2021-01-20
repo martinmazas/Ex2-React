@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
 import Delivery from './delivery';
-import personsData from '../Data/persons.json';
+// import personsData from '../Data/persons.json';
 import './deliveryInfo.css';
-// import Background from './background';
 import Fab from '@material-ui/core/Fab';
 import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
@@ -31,19 +30,22 @@ const styles = {
 class DeliveryInfo extends Component {
     constructor(props) {
         super(props);
+        
         this.state = {
-            deliveries : []
+            deliveries : props.list
         }
         this.eachDelivery = this.eachDelivery.bind(this);
         this.update = this.update.bind(this);
         this.delete = this.delete.bind(this);
         this.add = this.add.bind(this);
         this.nextId = this.nextId.bind(this);
+        this.onSubmitDelivery = this.onSubmitDelivery.bind(this);
     }
   
-    componentDidMount() {
-        personsData.map(item => this.add({id: item.id, date: item.date, name: item.name, city: item.city}));
-    }
+    // componentDidMount() {
+    //     this.state.deliveries.map(item => this.add({id: item.id, date: item.date, name: item.name, city: item.city}));
+    // }
+
 
     update(newDelivery, i) {
         this.setState(prevState => ({
@@ -51,6 +53,11 @@ class DeliveryInfo extends Component {
                 delivery => delivery.id !== i ? delivery: {...delivery, delivery: newDelivery})
         }));
     }
+
+    onSubmitDelivery(delivery) {
+        this.setState({deliveries: delivery});
+    }
+
 
     delete(id) {
         this.setState(prevState => ({
@@ -79,7 +86,7 @@ class DeliveryInfo extends Component {
 
     eachDelivery(item, i) {
         return(
-            <Delivery key={i} index={item.id} onChange={this.update} onDelete={this.delete}>
+            <Delivery key={i} index={item.id}>
                 <div className='person-info' style={styles.info}>
                     <h4 style={{ width: 24}}>{i + 1}</h4>
                     <h4 style={{marginLeft: 13 }}>{item.date}</h4>
@@ -97,11 +104,11 @@ class DeliveryInfo extends Component {
             </Delivery>       
         )
     }
-
     render() {
         return(
             <div className='deliveries-info' style={styles.deliveries}>
                 {this.state.deliveries.map(this.eachDelivery)}
+                {/* {this.props.children} */}
             </div>
         )
     }

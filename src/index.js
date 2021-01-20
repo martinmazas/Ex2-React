@@ -1,17 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import DeliveryInfo from './Components/deliveryInfo';
-import SaveDelivery from './Components/saveDelivery';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import Background from './Components/background';
-import Mobel from './Components/mobel';
+// import Mobel from './Components/mobel';
 
 ReactDOM.render(
   <React.StrictMode>
     <Background />
-    {/* <DeliveryInfo /> */}
-    {/* <SaveDelivery /> */}
     {/* <Mobel /> */}
   </React.StrictMode>,
   document.getElementById('root')
