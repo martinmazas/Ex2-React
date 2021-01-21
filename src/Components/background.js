@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, createContext } from 'react';
 import mask from '../images/Mask.png';
 import DeliveryInfo from './deliveryInfo';
 import SaveDelivery from './saveDelivery';
@@ -14,6 +14,8 @@ const styles ={
     }
 };
 
+export const DeliveryContext = createContext();
+
 const Background = () =>{
     const [persons, setPersons] = useState(personsData);
 
@@ -21,16 +23,29 @@ const Background = () =>{
         setPersons([...persons,{id:uuidv4(), date,name,city}]);
     }
 
-    useEffect(() => {console.log(persons);},[persons]);
+    const removePerson = (id) => {
+        setPersons(persons.filter(person => person.id !== id));
+        console.log("deleteeeeed");
+    }
+
+    const editPerson = (person) => {
+        console.log('hola');
+    }
+
+    useEffect(() => {console.log(persons)},[persons]);
 
     return(
-        <div className='background' style={{position: 'relative'}}>
-            <img src={mask} style={styles.paperContainer} alt="mask"/>
-            <DeliveryInfo addPerson = {addPerson} list = {persons}/>
-            <SaveDelivery addPerson = {addPerson} />
-        </div>
+        <DeliveryContext.Provider value={{persons, addPerson, removePerson, editPerson}}>
+            <div className='background' style={{position: 'relative'}}>
+                <img src={mask} style={styles.paperContainer} alt="mask"/>
+                <DeliveryInfo removePerson = {removePerson} editPerson = {editPerson} list = {persons}/>
+                <SaveDelivery addPerson = {addPerson} editPerson = {editPerson}/>
+            </div>
+        </DeliveryContext.Provider>
     )
 }
+
+export default Background;
 
 // class Background extends React.Component{
 //     constructor(props) {
@@ -61,4 +76,3 @@ const Background = () =>{
 //     }
 // }
 
-export default Background;

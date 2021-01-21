@@ -48,13 +48,14 @@ const styles = {
   },
 };
 
-const SaveDelivery = ({addPerson}) => {
+const SaveDelivery = ({addPerson, editPerson}) => {
   const [date, setDate] = useState('');
   const [name, setName] = useState('');
   const [city, setCity] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log(date, name, city);
     addPerson(date, name, city);
     setDate('');
     setName('');
@@ -64,185 +65,15 @@ const SaveDelivery = ({addPerson}) => {
   return(
     <div className="save-delivery" style={styles.save}>
       <form>
-        <input
-          type="text"
-          name="date"
-          value={date}
-          required onChange={ (e) => setDate(e.target.value)}
-          style={styles.input}
-        />{" "} 
-        <input
-          type="text"
-          name="name"
-          value={name}
-          required onChange={ (e) => setName(e.target.value)}
-          style={styles.input}
-        />{" "}
-        <input
-          type="text"
-          name="city"
-          value={city}
-          required onChange={ (e) => setCity(e.target.value)}
-          style={styles.input}
-        />{" "}
-        <Button
-          style={styles.saveButton}
-          onClick = {handleSubmit}
-        >
-          Save{" "}
-        </Button>{" "}
-      </form>{" "}
+        <input type="text" name="date" value={date} required onChange={ (e) => setDate(e.target.value)} style={styles.input}/>
+        <input type="text" name="name" value={name} required onChange={ (e) => setName(e.target.value)} style={styles.input}/>
+        <input type="text" name="city" value={city} required onChange={ (e) => setCity(e.target.value)} style={styles.input}/>
+        <Button style={styles.saveButton} onClick = {handleSubmit}>
+          Save
+        </Button>
+      </form>
     </div>
   )
 }
-
-// class SaveDelivery extends React.Component {
-//     constructor(props) {
-//         super(props);
-//         this.state ={
-//             // id: uuid(),
-//             date: "",
-//             name: "",
-//             city: "",
-//         }
-//         this.handleChange = this.handleChange.bind(this);
-//     }
-
-//     handleChange(event) {
-//         const value = event.target.value;
-//         this.setState({
-//         ...this.state,
-//         [event.target.name]: value,
-//         });
-//     }
-
-// // const SaveDelivery = () => {
-// //   const [state, setState] = React.useState({
-// //     date: "",
-// //     name: "",
-// //     city: "",
-// //   });
-
-// //   function handleChange(evt) {
-// //     const value = evt.target.value;
-// //     setState({
-// //       ...state,
-// //       [evt.target.name]: value,
-// //     });
-// //   }
-//     render(){
-//   return (
-//     <div className="save-delivery" style={styles.save}>
-//       <form>
-//         <input
-//           type="text"
-//           name="date"
-//           value={this.state.date}
-//           onChange={this.handleChange}
-//           style={styles.input}
-//         />{" "} 
-//         <input
-//           type="text"
-//           name="name"
-//           value={this.state.name}
-//           onChange={this.handleChange}
-//           style={styles.input}
-//         />{" "}
-//         <input
-//           type="text"
-//           name="city"
-//           value={this.state.city}
-//           onChange={this.handleChange}
-//           style={styles.input}
-//         />{" "}
-//         <Button
-//           variant="contained"
-//           style={styles.saveButton}
-//           onClick={() => this.props.addPerson(this.state)}
-//         >
-//           Save{" "}
-//         </Button>{" "}
-//       </form>{" "}
-//     </div>
-//   );
-//     }
-// };
-
-// class SaveDelivery extends Component {
-//     constructor(props) {
-//         super(props);
-//         this.state = {
-//             save: false,
-//             newDelivery:
-//                 {
-//                     date: "",
-//                     name: "",
-//                     city: ""
-//                 }
-//             // date: '',
-//             // name: '',
-//             // city: ''
-//         }
-//         // this.newDelivery = [];
-//         this.renderForm = this.renderForm.bind(this);
-//         // this.save = this.save.bind(this);
-//         this.handleChange = this.handleChange.bind(this);
-//         this.handleAdd = this.handleAdd.bind(this);
-//     }
-
-//     handleChange({target: { value: text }}) {
-
-//         this.setState({
-//             newDelivery: text
-//         })
-//         // let delivery = e.target.value;
-//         // const target = e.target.name;
-//         // this.setState(`${target}: ${delivery}`);
-
-//         // let json = `${target}: ${delivery}`;
-//         // // console.log(json);
-//         // this.setState.newDelivery = {delivery};
-//     }
-
-//     handleAdd(e) {
-//         console.log(this.state.newDelivery);
-//         // this.props.onSubmitDelivery(this.state.newDelivery);
-//     }
-
-//     // save(e) {
-//     //     console.log(e);
-//     //     e.preventDefault();
-
-//     //     this.props.onChange(this.newDelivery.value, this.props.index);
-//     //     this.setState({
-//     //         save: false
-//     //     })
-
-//     // }
-
-//     renderForm() {
-//         return(
-//             <div className='save-delivery' style={styles.save}>
-//                 <Delivery onChange={this.save}/>
-//                 <form>
-//                     <input name='date' style={styles.input} onChange={this.handleChange} value={this.state.newDelivery.date} />
-//                     <input name='name' style={styles.input} onChange={this.handleChange} value={this.state.newDelivery.name}/>
-//                     <input name='city' style={styles.input} onChange={this.handleChange} value={this.state.newDelivery.city}/>
-//                     <Button variant='contained' style={styles.saveButton} onClick={this.add}>
-//                         Save
-//                     </Button>
-//                 </form>
-//             </div>
-//         )
-//     }
-
-//     render() {
-//         return (
-//             <div>
-//                 {this.renderForm()}
-//             </div>
-//         )
-//     }
-// }
 
 export default SaveDelivery;
