@@ -55,7 +55,6 @@ const SaveDelivery = ({addPerson, editPerson}) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(date, name, city);
     addPerson(date, name, city);
     setDate('');
     setName('');

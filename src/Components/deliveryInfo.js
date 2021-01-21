@@ -1,10 +1,8 @@
-import React, {useState} from 'react';
-import Delivery from './delivery';
+import React from 'react';
 import './deliveryInfo.css';
 import Fab from '@material-ui/core/Fab';
 import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
-// import DeliveryContext from './background';
 
 const styles = {
     deliveries: {
@@ -29,37 +27,24 @@ const styles = {
 }
 
 const DeliveryInfo = ({ list, removePerson, editPerson }) => {
-    const [persons, setPersons] = useState(list);
-
-    const handleRemove = (id) => {
-        console.log(id);
-        removePerson(id);
-    }
-
-    const handleEdit = (person) => {
-        editPerson(person);
-    }
-
     return (
         <div className='deliveries-info' style={styles.deliveries}>
-            {persons.map(person =>{
+            {list.map((person,i) =>{
                 return(
-                <Delivery person={person} index={person.id} >
                     <div className='person-info' style={styles.info}>
-                        <h4 style={{ width: 24 }}>{person.id}</h4>
+                        <h4 style={{ width: 24 }}>{i+1}</h4>
                         <h4 style={{ marginLeft: 13 }}>{person.date}</h4>
                         <h4>{person.name}</h4>
                         <h4>{person.city}</h4>
                         <span style={styles.buttons} className="buttons">
-                            <Fab aria-label="edit" style={{ width: 32, height: 32, background: '#ED4D47', color: '#FFFFFF' }} onClick={() => handleEdit(person)}>
+                            <Fab aria-label="edit" style={{ width: 32, height: 32, background: '#ED4D47', color: '#FFFFFF' }} onClick={() => editPerson(person)}>
                                 <EditIcon />
                             </Fab>
-                            <Fab className="deleteButton" aria-label="edit" style={{ width: 32, height: 32, marginLeft: 13, background: '#ED4D47', color: '#FFFFFF' }} onClick={() => handleRemove(person.id)}>
+                            <Fab className="deleteButton" aria-label="edit" style={{ width: 32, height: 32, marginLeft: 13, background: '#ED4D47', color: '#FFFFFF' }} onClick={() => removePerson(person.id)}>
                                 <DeleteIcon />
                             </Fab>
                         </span>
                     </div>
-                </Delivery>
                 )
                 })}
         </div>
