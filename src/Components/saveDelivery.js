@@ -1,7 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import "./saveDelivery.css";
 import { Button } from "@material-ui/core";
-// import Delivery from "./delivery";
 
 const styles = {
   save: {
@@ -48,78 +47,126 @@ const styles = {
     marginLeft: 115,
   },
 };
-//Uno mas
 
-class SaveDelivery extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state ={
-            date: "",
-            name: "",
-            city: "",
-        }
-        this.handleChange = this.handleChange.bind(this);
-    }
+const SaveDelivery = ({addPerson}) => {
+  const [date, setDate] = useState('');
+  const [name, setName] = useState('');
+  const [city, setCity] = useState('');
 
-    handleChange(event) {
-        const value = event.target.value;
-        this.setState({
-        ...this.state,
-        [event.target.name]: value,
-        });
-    }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    addPerson(date, name, city);
+    setDate('');
+    setName('');
+    setCity('');
+  }
 
-// const SaveDelivery = () => {
-//   const [state, setState] = React.useState({
-//     date: "",
-//     name: "",
-//     city: "",
-//   });
-
-//   function handleChange(evt) {
-//     const value = evt.target.value;
-//     setState({
-//       ...state,
-//       [evt.target.name]: value,
-//     });
-//   }
-    render(){
-  return (
+  return(
     <div className="save-delivery" style={styles.save}>
       <form>
         <input
           type="text"
           name="date"
-          value={this.state.date}
-          onChange={this.handleChange}
+          value={date}
+          required onChange={ (e) => setDate(e.target.value)}
           style={styles.input}
-        />{" "}
+        />{" "} 
         <input
           type="text"
           name="name"
-          value={this.state.name}
-          onChange={this.handleChange}
+          value={name}
+          required onChange={ (e) => setName(e.target.value)}
           style={styles.input}
         />{" "}
         <input
           type="text"
           name="city"
-          value={this.state.city}
-          onChange={this.handleChange}
+          value={city}
+          required onChange={ (e) => setCity(e.target.value)}
           style={styles.input}
         />{" "}
         <Button
-          variant="contained"
           style={styles.saveButton}
-          onClick={() => this.props.handler(this.state)}
+          onClick = {handleSubmit}
         >
           Save{" "}
         </Button>{" "}
       </form>{" "}
     </div>
-  );
-    }
-};
+  )
+}
+
+// class SaveDelivery extends React.Component {
+//     constructor(props) {
+//         super(props);
+//         this.state ={
+//             // id: uuid(),
+//             date: "",
+//             name: "",
+//             city: "",
+//         }
+//         this.handleChange = this.handleChange.bind(this);
+//     }
+
+//     handleChange(event) {
+//         const value = event.target.value;
+//         this.setState({
+//         ...this.state,
+//         [event.target.name]: value,
+//         });
+//     }
+
+// // const SaveDelivery = () => {
+// //   const [state, setState] = React.useState({
+// //     date: "",
+// //     name: "",
+// //     city: "",
+// //   });
+
+// //   function handleChange(evt) {
+// //     const value = evt.target.value;
+// //     setState({
+// //       ...state,
+// //       [evt.target.name]: value,
+// //     });
+// //   }
+//     render(){
+//   return (
+//     <div className="save-delivery" style={styles.save}>
+//       <form>
+//         <input
+//           type="text"
+//           name="date"
+//           value={this.state.date}
+//           onChange={this.handleChange}
+//           style={styles.input}
+//         />{" "} 
+//         <input
+//           type="text"
+//           name="name"
+//           value={this.state.name}
+//           onChange={this.handleChange}
+//           style={styles.input}
+//         />{" "}
+//         <input
+//           type="text"
+//           name="city"
+//           value={this.state.city}
+//           onChange={this.handleChange}
+//           style={styles.input}
+//         />{" "}
+//         <Button
+//           variant="contained"
+//           style={styles.saveButton}
+//           onClick={() => this.props.addPerson(this.state)}
+//         >
+//           Save{" "}
+//         </Button>{" "}
+//       </form>{" "}
+//     </div>
+//   );
+//     }
+// };
 
 // class SaveDelivery extends Component {
 //     constructor(props) {

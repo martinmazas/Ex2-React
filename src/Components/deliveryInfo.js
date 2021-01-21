@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import Delivery from './delivery';
 // import personsData from '../Data/persons.json';
 import './deliveryInfo.css';
@@ -27,10 +27,48 @@ const styles = {
         marginBottom: 14,
     }
 }
+
+// const DeliveryInfo = (list) => {
+//     const [persons, setPersons] = useState(list);
+
+//     // const eachDelivery = (item, i) => {
+//     //     <Delivery key={i} index={item.id}>
+//     //         <div className='person-info' style={styles.info}>
+//     //             <h4 style={{ width: 24 }}>{i + 1}</h4>
+//     //             <h4 style={{ marginLeft: 13 }}>{item.date}</h4>
+//     //             <h4>{item.name}</h4>
+//     //             <h4>{item.city}</h4>
+//     //             <span style={styles.buttons} className="buttons">
+//     //                 <Fab aria-label="edit" style={{ width: 32, height: 32, background: '#ED4D47', color: '#FFFFFF' }} onClick={this.edit}>
+//     //                     <EditIcon />
+//     //                 </Fab>
+//     //                 <Fab className="deleteButton" aria-label="edit" style={{ width: 32, height: 32, marginLeft: 13, background: '#ED4D47', color: '#FFFFFF' }} onClick={() => this.delete(item.id)}>
+//     //                     <DeleteIcon />
+//     //                 </Fab>
+//     //             </span>
+//     //         </div>
+//     //     </Delivery>
+
+//     // }
+//     return (
+//         // <div className='deliveries-info' style={styles.deliveries}>
+//         //     {useEffect(() => {
+//         //         persons.forEach(item => setPersons(prevState => ({...prevState, [item]: "" })));
+//         //     }, [persons])}
+//         // </div>
+//         persons.map((anObjectMapped, index) => {
+//             return (
+//                 <p key={`${anObjectMapped.name}_{anObjectMapped.email}`}>
+//                     {anObjectMapped.name} - {anObjectMapped.email}
+//                 </p>
+//             );
+//         })
+//     )
+// }
 class DeliveryInfo extends Component {
     constructor(props) {
         super(props);
-        
+        console.log(props);
         this.state = {
             deliveries : props.list
         }
@@ -39,13 +77,11 @@ class DeliveryInfo extends Component {
         this.delete = this.delete.bind(this);
         this.add = this.add.bind(this);
         this.nextId = this.nextId.bind(this);
-        this.onSubmitDelivery = this.onSubmitDelivery.bind(this);
     }
-  
+
     // componentDidMount() {
     //     this.state.deliveries.map(item => this.add({id: item.id, date: item.date, name: item.name, city: item.city}));
     // }
-
 
     update(newDelivery, i) {
         this.setState(prevState => ({
@@ -53,11 +89,6 @@ class DeliveryInfo extends Component {
                 delivery => delivery.id !== i ? delivery: {...delivery, delivery: newDelivery})
         }));
     }
-
-    onSubmitDelivery(delivery) {
-        this.setState({deliveries: delivery});
-    }
-
 
     delete(id) {
         this.setState(prevState => ({
@@ -101,14 +132,13 @@ class DeliveryInfo extends Component {
                         </Fab>
                     </span>
                 </div>
-            </Delivery>       
+            </Delivery>   
         )
     }
     render() {
         return(
             <div className='deliveries-info' style={styles.deliveries}>
                 {this.state.deliveries.map(this.eachDelivery)}
-                {/* {this.props.children} */}
             </div>
         )
     }
