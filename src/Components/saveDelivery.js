@@ -26,7 +26,6 @@ const styles = {
     fontWeight: "bold",
     fontSize: 18,
     lineHeight: 40,
-
     color: "#402B2B",
   },
   saveButton: {
@@ -48,26 +47,27 @@ const styles = {
   },
 };
 
-const SaveDelivery = ({addPerson, editPerson}) => {
+const SaveDelivery = ({ addPerson, editPerson, onePerson }) => {
   const [date, setDate] = useState('');
   const [name, setName] = useState('');
   const [city, setCity] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    addPerson(date, name, city);
+    console.log(name, city, date);
+    (date !== '' && name !== '' && city !== '') ? addPerson(date, name, city): alert('Please fill all the fields');
     setDate('');
     setName('');
     setCity('');
   }
 
-  return(
+  return (
     <div className="save-delivery" style={styles.save}>
       <form>
-        <input type="text" name="date" value={date} required onChange={ (e) => setDate(e.target.value)} style={styles.input}/>
-        <input type="text" name="name" value={name} required onChange={ (e) => setName(e.target.value)} style={styles.input}/>
-        <input type="text" name="city" value={city} required onChange={ (e) => setCity(e.target.value)} style={styles.input}/>
-        <Button style={styles.saveButton} onClick = {handleSubmit}>
+        <input type="text" name="date" defaultValue={onePerson.date?onePerson.date:date} onChange={(e) => setDate(e.target.value)} style={styles.input}/>
+        <input type="text" name="name" defaultValue={onePerson.name?onePerson.name:name} onChange={(e) => setName(e.target.value)} style={styles.input}/>
+        <input type="text" name="city" defaultValue={onePerson.city?onePerson.city:city} onChange={(e) => setCity(e.target.value)} style={styles.input}/>
+        <Button style={styles.saveButton} onClick={handleSubmit}>
           Save
         </Button>
       </form>
