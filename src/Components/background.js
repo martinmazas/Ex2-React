@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import mask from '../images/Mask.png';
 import DeliveryInfo from './deliveryInfo';
 import SaveDelivery from './saveDelivery';
@@ -28,15 +28,18 @@ const Background = () => {
     }
 
     const editPerson = (person) => {
-        setOnePerson(person);
-        // console.log(persons[person.id]);
+        setOnePerson({id:person.id, date:person.date, name: person.name, city: person.city});
+    }
+
+    const updatePerson = (person, id) => {
+        setPersons(persons.map(p => p.id !== id ? p: person));
     }
 
     return (
         <div className='background' style={{ position: 'relative' }}>
             <img src={mask} style={styles.paperContainer} alt="mask" />
             <DeliveryInfo removePerson={removePerson} editPerson={editPerson} list={persons} />
-            <SaveDelivery addPerson={addPerson} editPerson={editPerson} onePerson={onePerson} />
+            <SaveDelivery addPerson={addPerson} editPerson={editPerson} onePerson={onePerson} setOnePerson={setOnePerson} updatePerson={updatePerson} />
         </div>
     )
 }

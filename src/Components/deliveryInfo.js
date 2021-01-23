@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import './deliveryInfo.css';
 import Fab from '@material-ui/core/Fab';
 import EditIcon from '@material-ui/icons/Edit';
@@ -20,40 +20,35 @@ const styles = {
     },
     info: {
         width: 514,
-        height: 38,
         marginLeft: 24,
         marginBottom: 14,
     }
 }
 
 const DeliveryInfo = ({ list, removePerson, editPerson }) => {
+    list.sort((a,b) => new Date(a.date) - new Date(b.date));
     return (
         <div className='deliveries-info' style={styles.deliveries}>
-             <table className='person-info' style={styles.info}>
-            {list.map((person, i) => {
-                return (
-                       
-                            <tr>
-                                <td style={{ width: 24 }}><h4 >{i + 1}</h4></td>
-                                <td style={{ marginLeft: 13 }}><h4>{person.date}</h4></td>
-                                <td><h4>{person.name}</h4></td>
-                                <td><h4>{person.city}</h4></td>
-                                <td style={styles.buttons} className="buttons">
-                                    {/* <span  className="buttons"> */}
-                                    <Fab aria-label="edit" style={{ width: 32, height: 32, background: '#ED4D47', color: '#FFFFFF' }} onClick={() => editPerson(person)}>
-                                        <EditIcon />
-                                    </Fab>
-                                    <Fab className="deleteButton" aria-label="edit" style={{ width: 32, height: 32, marginLeft: 13, background: '#ED4D47', color: '#FFFFFF' }} onClick={() => removePerson(person.id)}>
-                                        <DeleteIcon />
-                                    </Fab>
-                                {/* </span> */}
-                                </td>
-                            </tr>
-                    
-                )
-                
-            }
-            )}
+            <table className='person-info' style={styles.info}>
+                {list.map((person, i) => {
+                    return (
+                        <tr>
+                            <td style={{ width: 24 }}><h4 >{i + 1}</h4></td>
+                            <td style={{ marginLeft: 13 }}><h4>{person.date}</h4></td>
+                            <td><h4>{person.name}</h4></td>
+                            <td><h4>{person.city}</h4></td>
+                            <td style={styles.buttons} className="buttons">
+                                <Fab aria-label="edit" style={{ width: 32, height: 32, background: '#ED4D47', color: '#FFFFFF' }} onClick={() => editPerson(person)}>
+                                    <EditIcon />
+                                </Fab>
+                                <Fab className="deleteButton" aria-label="edit" style={{ width: 32, height: 32, marginLeft: 13, background: '#ED4D47', color: '#FFFFFF' }} onClick={() => removePerson(person.id)}>
+                                    <DeleteIcon />
+                                </Fab>
+                            </td>
+                        </tr>
+                    )
+                }
+                )}
             </table>
         </div>
     )

@@ -19,3 +19,7 @@ td ~ td{
     margin-left: 30px;
     width: 92px;
 }
+
+table{
+    border-spacing: 0px;
+}
