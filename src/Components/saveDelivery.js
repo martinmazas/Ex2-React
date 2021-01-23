@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState, input } from "react";
 import "./saveDelivery.css";
 import { Button } from "@material-ui/core";
 
@@ -47,43 +47,43 @@ const styles = {
   },
 };
 
-const SaveDelivery = ({ addPerson, editPerson, onePerson, setOnePerson, updatePerson }) => {
+const SaveDelivery = ({ addPerson, onePerson, updatePerson }) => {
   const [date, setDate] = useState('');
   const [name, setName] = useState('');
   const [city, setCity] = useState('');
 
   const handleSubmit = (e) => {
-    console.log("handleSubmit");
     e.preventDefault();
+    console.log("handleSubmit");
     (date !== '' && name !== '' && city !== '') ? addPerson(date, name, city): alert('Please fill all the fields');
     setDate('');
     setName('');
     setCity('');
-    console.log(name);
   }
+
 
   const handleEdit = (e) => {
     console.log("handleEdit");
     let editDelivery = {"id": onePerson.id, "date": date?date:onePerson.date, "name": name?name:onePerson.name, "city": city?city:onePerson.city};
     updatePerson(editDelivery, onePerson.id);
-    setDate('');
-    setName('');
-    setCity('');
   }
 
   const buttonType = () => {
-    return (onePerson !== '')? handleEdit : handleSubmit;
+    return (onePerson !== '')? <Button style={styles.saveButton} onClick={handleEdit} >
+        Update
+      </Button> : <Button style={styles.saveButton} onClick={handleSubmit} >
+          Save
+      </Button>;
   }
+
 
   return (
     <div className="save-delivery" style={styles.save}>
-      <form>
-        <input type="text" name="date" defaultValue={onePerson?onePerson.date:date} onChange={(e) => setDate(e.target.value)} style={styles.input}/>
-        <input type="text" name="name" defaultValue={onePerson?onePerson.name:name} onChange={(e) => setName(e.target.value)} style={styles.input}/>
-        <input type="text" name="city" defaultValue={onePerson?onePerson.city:city} onChange={(e) => setCity(e.target.value)} style={styles.input}/>
-        <Button style={styles.saveButton} onClick={buttonType()}>
-          Save
-        </Button>
+      <form onSubmit={handleSubmit}>
+        <input type="text" name="date" defaultValue={onePerson?onePerson.date:date} onChange={(e) => setDate(e.target.value)} style={styles.input} required/>
+        <input type="text" name="name" defaultValue={onePerson?onePerson.name:name} onChange={(e) => setName(e.target.value)} style={styles.input} required/>
+        <input type="text" name="city" defaultValue={onePerson?onePerson.city:city} onChange={(e) => setCity(e.target.value)} style={styles.input} required/>
+        {buttonType()}
       </form>
     </div>
   )

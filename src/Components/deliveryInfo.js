@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import './deliveryInfo.css';
 import Fab from '@material-ui/core/Fab';
 import EditIcon from '@material-ui/icons/Edit';
@@ -32,6 +32,7 @@ const DeliveryInfo = ({ list, removePerson, editPerson }) => {
             <table className='person-info' style={styles.info}>
                 {list.map((person, i) => {
                     return (
+                        <tbody>
                         <tr>
                             <td style={{ width: 24 }}><h4 >{i + 1}</h4></td>
                             <td style={{ marginLeft: 13 }}><h4>{person.date}</h4></td>
@@ -46,6 +47,7 @@ const DeliveryInfo = ({ list, removePerson, editPerson }) => {
                                 </Fab>
                             </td>
                         </tr>
+                        </tbody>
                     )
                 }
                 )}
