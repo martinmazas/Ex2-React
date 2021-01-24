@@ -4,11 +4,14 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import Background from './Components/background';
 import Mobel from './Components/mobel';
+import Container from '@material-ui/core/Container';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Background />
-    <Mobel />
+    <Container id="mainContainer">
+      <Background />
+      <Mobel />
+    </Container>
   </React.StrictMode>,
   document.getElementById('root')
 );

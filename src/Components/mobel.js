@@ -3,16 +3,20 @@ import mobel from '../images/mobel.png';
 
 const styles = {
     paperContainer: {
-        height: 394.55,
-        width: 811,
-        position: 'absolute'
+        height: '34.62%',
+        width: '50.56%',
+        position: 'absolute',
+        left: '0%',
+        right: '49.44%',
+        top: '65.38%',
+        bottom: '0.04%'
+
     }
 };
 
-export default class Mobel extends React.Component {
-    render() {
-        return (
-            <img src={mobel} style={styles.paperContainer} alt="mobel" />
-        )
-    }
+const Mobel = () => {
+    return <img src={mobel} style={styles.paperContainer} alt="mobel" />;
 }
+
+export default Mobel;
+

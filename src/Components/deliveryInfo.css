@@ -15,9 +15,8 @@
     color: #402B2B;
 }
 
-td ~ td{
-    margin-left: 30px;
-    width: 92px;
+#cell{
+    padding: 0;
 }
 
 table{

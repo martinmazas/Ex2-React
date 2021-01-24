@@ -4,13 +4,15 @@ import DeliveryInfo from './deliveryInfo';
 import SaveDelivery from './saveDelivery';
 import personsData from '../Data/persons.json';
 import { v4 as uuidv4 } from 'uuid';
+import './background.css';
 
 const styles = {
     paperContainer: {
-        height: 800,
-        width: 1285,
-        marginLeft: 323,
-        position: 'relative'
+        left: '20.14%',
+        width: '80.11%',
+        height: '70.11%',
+        position: 'absolute',
+        top: -3,
     }
 };
 
@@ -20,6 +22,7 @@ const Background = () => {
 
     const addPerson = (date, name, city) => {
         setPersons([...persons, { id: uuidv4(), date, name, city }]);
+        console.log(persons);
     }
 
     const removePerson = (id) => {
@@ -36,10 +39,10 @@ const Background = () => {
     }
 
     return (
-        <div className='background' style={{ position: 'relative'}}>
-            <img id='background' src={mask} style={styles.paperContainer} alt="mask" />
+        <div style={styles.paperContainer}>
+            <img id='background' src={mask} alt="mask" />
             <DeliveryInfo removePerson={removePerson} editPerson={editPerson} list={persons} />
-            <SaveDelivery addPerson={addPerson} onePerson={onePerson} updatePerson={updatePerson} />   
+            <SaveDelivery addPerson={addPerson} onePerson={onePerson} updatePerson={updatePerson} />
         </div>
     )
 }
