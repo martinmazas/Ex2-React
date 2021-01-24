@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import mask from '../images/Mask.png';
 import DeliveryInfo from './deliveryInfo';
 import SaveDelivery from './saveDelivery';
@@ -22,7 +22,6 @@ const Background = () => {
 
     const addPerson = (date, name, city) => {
         setPersons([...persons, { id: uuidv4(), date, name, city }]);
-        console.log(persons);
     }
 
     const removePerson = (id) => {
@@ -42,7 +41,7 @@ const Background = () => {
         <div style={styles.paperContainer}>
             <img id='background' src={mask} alt="mask" />
             <DeliveryInfo removePerson={removePerson} editPerson={editPerson} list={persons} />
-            <SaveDelivery addPerson={addPerson} onePerson={onePerson} updatePerson={updatePerson} />
+            <SaveDelivery addPerson={addPerson} onePerson={onePerson} updatePerson={updatePerson}/>
         </div>
     )
 }

@@ -8,7 +8,7 @@ import Container from '@material-ui/core/Container';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Container id="mainContainer">
+    <Container>
       <Background />
       <Mobel />
     </Container>

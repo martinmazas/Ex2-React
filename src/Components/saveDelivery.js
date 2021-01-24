@@ -1,4 +1,4 @@
-import React, { useState, input } from "react";
+import React, { useState } from "react";
 import "./saveDelivery.css";
 import { Button } from "@material-ui/core";
 
@@ -53,7 +53,6 @@ const SaveDelivery = ({ addPerson, onePerson, updatePerson }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("handleSubmit");
     (date !== '' && name !== '' && city !== '') ? addPerson(date, name, city) : alert('Please fill all the fields');
     setDate('');
     setName('');
@@ -61,9 +60,9 @@ const SaveDelivery = ({ addPerson, onePerson, updatePerson }) => {
   }
 
   const handleEdit = (e) => {
-    console.log("handleEdit");
+    e.preventDefault();
     let editDelivery = { "id": onePerson.id, "date": date ? date : onePerson.date, "name": name ? name : onePerson.name, "city": city ? city : onePerson.city };
-    updatePerson(editDelivery, onePerson.id);
+    updatePerson(editDelivery, onePerson.id, setDate, setName, setCity);
   }
 
   const buttonType = () => {
@@ -75,7 +74,7 @@ const SaveDelivery = ({ addPerson, onePerson, updatePerson }) => {
           Save
       </Button>;
   }
-
+  
   return (
     <div className="save-delivery" style={styles.save}>
       <form>

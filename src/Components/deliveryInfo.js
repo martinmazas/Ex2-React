@@ -19,7 +19,8 @@ const styles = {
         position: 'absolute'
     },
     buttons: {
-        width: '22.15%'
+        width: '22.15%',
+        padding: 0
     },
     info: {
         marginLeft: '4.36%',
@@ -46,7 +47,7 @@ const DeliveryInfo = ({ list, removePerson, editPerson }) => {
                                     <Fab aria-label="edit" style={{ width: 32, height: 32, background: '#ED4D47', color: '#FFFFFF' }} onClick={() => editPerson(person)}>
                                         <EditIcon />
                                     </Fab>
-                                    <Fab className="deleteButton" aria-label="edit" style={{ width: 32, height: 32, marginLeft: '2.36%', background: '#ED4D47', color: '#FFFFFF' }} onClick={() => removePerson(person.id)}>
+                                    <Fab className="deleteButton" aria-label="edit" style={{ width: 32, height: 32, marginLeft: '16.36%', background: '#ED4D47', color: '#FFFFFF' }} onClick={() => removePerson(person.id)}>
                                         <DeleteIcon />
                                     </Fab>
                                 </TableCell>
